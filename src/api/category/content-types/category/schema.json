@@ -4,8 +4,8 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Categories",
-    "description": ""
+    "displayName": "Category",
+    "description": "Organize your content into categories"
   },
   "options": {
     "draftAndPublish": false
@@ -15,17 +15,17 @@
     "name": {
       "type": "string"
     },
-    "product": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::product.product",
-      "inversedBy": "categories"
+    "slug": {
+      "type": "uid"
     },
     "articles": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::article.article",
-      "mappedBy": "categories"
+      "mappedBy": "category"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
